@@ -44,3 +44,23 @@ section h1 {
     padding: 5px;
     border-radius: 3px;
 }
+
+
+main > section {
+    display: none;
+    padding: 20px 5px;
+}
+
+section h1 {
+    margin: 10px 0;
+    font-size: 1.2em;
+}
+
+#infoBox, #errorBox, #loadingBox {
+    width: 80%;
+    margin: 10px auto;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 3px;
+}
