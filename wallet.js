@@ -45,3 +45,55 @@
     $("#passwordShowMnemonic").val("");
     showView("viewShowMnemonic");
   });
+
+  
+  $("#linkShowAddressesAndBalances").click(function () {
+    $("#passwordShowAddresses").val("");
+    $("#divAddressesAndBalances").empty();
+    showView("viewShowAddressesAndBalances");
+  });
+
+  $("#linkSendTransaction").click(function () {
+    $("#divSignAndSendTransaction").hide();
+
+    $("#passwordSendTransaction").val("");
+    $("#transferValue").val("");
+    $("#senderAddress").empty();
+
+    $("#textareaSignedTransaction").val("");
+    $("#textareaSendTransactionResult").val("");
+
+    showView("viewSendTransaction");
+  });
+
+  $("#linkExport").click(function () {
+    showView("viewExportWallet");
+    $("#currentWalletToExport").val(window.localStorage.JSON);
+  });
+
+  $("#linkContract").click(function () {
+    showView("viewContract");
+    $("#contractAddress").val(SAMPLE_CONTRACT_ADDRESS);
+    $("#textareaContractABI").val(JSON.stringify(SAMPLE_ABI, null, " "));
+  });
+
+  $("#buttonGenerateNewWallet").click(generateNewWallet);
+  $("#buttonOpenExistingWallet").click(openWalletFromMnemonic);
+  $("#buttonUploadWallet").click(openWalletFromFile);
+  $("#buttonShowMnemonic").click(showMnemonic);
+  $("#buttonShowAddresses").click(showAddressesAndBalances);
+  $("#buttonSendAddresses").click(unlockWalletAndDeriveAddresses);
+  $("#buttonSignTransaction").click(signTransaction);
+  $("#buttonSendSignedTransaction").click(sendTransaction);
+  $("#exportWalletForReal").click(exportWalletToJSONFile);
+  $("#contractAddressInitialize").click(initializeContract);
+  $("#contractExecute").click(executeContract);
+
+  $("#linkDelete").click(deleteWallet);
+
+  function showView(viewName) {
+    // Hide all views and show the selected view only
+    $("main > section").hide();
+    $("#" + viewName).show();
+
+  
