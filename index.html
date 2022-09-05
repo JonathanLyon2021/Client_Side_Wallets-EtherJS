@@ -104,6 +104,50 @@
             <input type="button" id="buttonSendAddresses" value="Unlock"/>
         </div>
         
+          <div id="divSignAndSendTransaction">
+            <div><span>Sender:</span><select name="address" id="senderAddress"></select></div>
+            <div><span>Recipient:</span><input type="text" id="recipientAddress"></div>
+            <div><span>Value:</span><input type="number" id="transferValue"/></div>
+            <input type="button" id="buttonSignTransaction" value="Sign Transaction"/>
+            <textarea id="textareaSignedTransaction" class="signedTransaction" readonly="true"></textarea>
+            <input type="button" id="buttonSendSignedTransaction" value="Send Transaction"/>
+            <textarea id="textareaSendTransactionResult" class="result" readonly="true"></textarea>
+        </div>
+    </section>
+
+    <section id="viewExportWallet">
+        <h1>Export Wallet</h1>
+        <p>Send Transaction: password -> unlock wallet -> derive 5 addresses -> show transaction form -> fill form -> sign transaction -> broadcast transaction</p>
+        <div>
+            <textarea id="currentWalletToExport" readonly="true"></textarea>
+            <button id="exportWalletForReal">Export</button>
+        </div>
+    </section>
+
+    <section id="viewContract">
+        <h1>Contract</h1>
+        <p>View Contract</p>
+        <div>
+            <div><span>Contract address: </span><input type="text" id="contractAddress" /></div>
+            <div><span>ABI: </span><textarea type="text" id="textareaContractABI"></textarea></div>
+            <button id="contractAddressInitialize">Initialize Contract</button>
+        </div>
+        <hr />
+        <div>
+            <select id="contractMethods"></select>
+            <div id="methodExtension"></div>
+        </div>
+        Wallet password: <input type="password" id="contractPassword" /><br /> 
+        <button id="contractExecute">Execute</button>
+        <hr />
+        <div id="contractResult"></div>
+    </section>
+</main>
+
+<footer>HD Wallet Demo</footer>
+</body>
+</html>
+
         
         
         
