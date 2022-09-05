@@ -88,3 +88,68 @@ section h1 {
 #errorBox {
     background: #F50;
 }
+
+
+footer {
+    background: #DDD;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    text-align: center;
+    border-radius: 3px;
+}
+
+input.privateKey {
+    width: 400px;
+    max-width: 100%;
+}
+
+input.address {
+    width: 300px;
+    max-width: 100%;
+}
+
+textarea {
+    display: block;
+    margin-top: 5px;
+    width: calc(100% - 5px);
+    height: 300px;
+    max-width: 100%;
+}
+
+#panelAccountInfo {
+    background: #ccc;
+    padding: 15px;
+    margin: 0 5px 15px 5px;
+    max-width: calc(100% - 40px);
+    border-radius: 2px;
+}
+
+#panelAccountInfo span {
+    display: inline-block;
+    width: 120px;
+}
+
+#viewSendTransaction span {
+    display: inline-block;
+    width: 80px;
+}
+
+#panelAccountInfo input {
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+    display: inline-block;
+    width: calc(100% - 130px);
+}
+
+#panelAccountInfo input#currentAccountAddress {
+    color: #555;
+}
+
+div #qrcode {
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    padding: 5px;
+    max-width: 100%;
+    height: auto;
+    margin: 10px;
+}
