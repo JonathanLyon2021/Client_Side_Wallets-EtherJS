@@ -96,4 +96,74 @@
     $("main > section").hide();
     $("#" + viewName).show();
 
+   
+    if (localStorage.JSON) {
+      $("#linkCreateNewWallet").hide();
+      $("#linkImportWalletFromMnemonic").hide();
+      $("#linkImportWalletFromFile").hide();
+
+      $("#linkShowMnemonic").show();
+      $("#linkShowAddressesAndBalances").show();
+      $("#linkSendTransaction").show();
+      $("#linkDelete").show();
+      $("#linkContract").show();
+      $("#linkExport").show();
+      
+    } else {
+      $("#linkShowMnemonic").hide();
+      $("#linkShowAddressesAndBalances").hide();
+      $("#linkSendTransaction").hide();
+      $("#linkDelete").hide();
+      $("#linkContract").hide();
+      $("#linkExport").hide();
+
+      $("#linkCreateNewWallet").show();
+      $("#linkImportWalletFromMnemonic").show();
+      $("#linkImportWalletFromFile").show();
+    }
+  }
+
+  function showInfo(message) {
+    $("#infoBox>p").html(message);
+    $("#infoBox").show();
+    $("#infoBox>header").click(function () {
+      $("#infoBox").hide();
+    });
+  }
+
+  function showError(errorMsg) {
+    $("#errorBox>p").html("Error: " + errorMsg);
+    $("#errorBox").show();
+    $("#errorBox>header").click(function () {
+      $("#errorBox").hide();
+    });
+  }
+
+  function showLoadingProgress(percent) {
+    $("#loadingBox").html(
+      "Loading... " + parseInt(percent * 100) + "% complete"
+    );
+    $("#loadingBox").show();
+    $("#loadingBox>header").click(function () {
+      $("#errorBox").hide();
+    });
+  }
+
+  function hideLoadingBar() {
+    $("#loadingBox").hide();
+  }
+
+  function showLoggedInButtons() {
+    $("#linkCreateNewWallet").hide();
+    $("#linkImportWalletFromMnemonic").hide();
+    $("#linkImportWalletFromFile").hide();
+
+    $("#linkShowMnemonic").show();
+    $("#linkShowAddressesAndBalances").show();
+    $("#linkSendTransaction").show();
+    $("#linkDelete").show();
+    $("#linkContract").show();
+    $("#linkExport").show();
+  }
+   
   
