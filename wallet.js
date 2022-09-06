@@ -185,9 +185,9 @@
 		window.localStorage["JSON"] = encryptedWallet;
 		showLoggedInButtons();
 	}
-		
-	 	function decryptWallet(json, password) {
-		// TODO:
+	 
+		function decryptWallet(json, password) {
+		return ethers.Wallet.fromEncryptedJson(json, password, showLoadingProgress);
 	}
 
 	async function generateNewWallet() {
