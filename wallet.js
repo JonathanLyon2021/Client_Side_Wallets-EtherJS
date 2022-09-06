@@ -186,4 +186,16 @@
 		showLoggedInButtons();
 	}
 		
+	 	function decryptWallet(json, password) {
+		// TODO:
+	}
+
+	async function generateNewWallet() {
+		const password = $("#passwordCreateWallet").val();
+		const randomNumber = Math.random();
+		const wallet = ethers.Wallet.createRandom([password, randomnumber]);
+		await encryptAndSaveJSON(wallet, password);
+		showInfo("Please save your mnemonic:" + wallet.mnemonic.phrase);
+		$("#textareaCreateWalletResult").val(window.localStorage.JSON);
+	}
   
