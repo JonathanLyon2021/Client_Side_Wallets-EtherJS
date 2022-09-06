@@ -235,3 +235,14 @@
       } finally {
         hideLoadingBar();
       }
+	     if(!wallet.mnemonic.phrase) {
+        showError("Invalid JSON file");
+        return;
+      }
+      window.localStorage["JSON"] = json;
+      showInfo("Wallet successfully loaded!");
+      showLoggedInButtons();
+    };
+
+    fileReader.readAsText($("#walletForUpload")[0].files[0]);
+	}
