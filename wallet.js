@@ -165,5 +165,20 @@
     $("#linkContract").show();
     $("#linkExport").show();
   }
-   
+  
+	async function encryptAndSaveJSON(wallet, password) {
+		let encryptedWallet;
+
+		try {
+			encryptedWallet = await wallet.encrypt(
+				password,
+				{},
+				showLoadingProgress
+			);
+		} catch (e) {
+			showError(e);
+			return;
+		} finally {
+			hideLoadingBar();
+		}
   
