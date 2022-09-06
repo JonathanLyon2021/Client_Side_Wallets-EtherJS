@@ -198,4 +198,15 @@
 		showInfo("Please save your mnemonic:" + wallet.mnemonic.phrase);
 		$("#textareaCreateWalletResult").val(window.localStorage.JSON);
 	}
+	 
+	 async function openWalletFromMnemonic() {
+		const mnemonic = $("#textareaOpenWallet").val();
+
+    if(!ethers.utils.isValidMnemonic(mnemonic)) {
+      showError("Invalid Mnemonic");
+    } else {
+      const wallet = ethers.Wallet.fromMnemonic(mnemonic);
+      const password = $("#passwordOpenWallet").val();
+
+	 	
   
