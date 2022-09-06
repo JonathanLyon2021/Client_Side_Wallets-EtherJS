@@ -208,5 +208,9 @@
       const wallet = ethers.Wallet.fromMnemonic(mnemonic);
       const password = $("#passwordOpenWallet").val();
 
-	 	
+      await encryptAndSaveJSON(wallet, password);
+      showInfo("Wallet loaded successfully!");
+      $("#textareaOpenWalletResult").val(window.localStorage.JSON);
+    }
+}
   
