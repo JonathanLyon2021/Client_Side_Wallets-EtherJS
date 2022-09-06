@@ -181,4 +181,9 @@
 		} finally {
 			hideLoadingBar();
 		}
+		
+		window.localStorage["JSON"] = encryptedWallet;
+		showLoggedInButtons();
+	}
+		
   
