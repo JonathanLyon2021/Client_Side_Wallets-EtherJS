@@ -213,4 +213,25 @@
       $("#textareaOpenWalletResult").val(window.localStorage.JSON);
     }
 }
-  
+	 
+  async function openWalletFromFile() {
+		if($("#walletForUpload")[0].files.length <= 0) {
+      showError("Please select a file to upload");
+      return;
+    }
+    let password = $("#passwordUploadWallet").val();
+    let fileReader = new FileReader();
+
+    fileReader.onload = async function () {
+      let json = fileReader.result;
+
+      let wallet;
+
+      try{
+        wallet = await decryptWallet(json, password);
+      } catch (e) {
+        showError(e);
+        return;
+      } finally {
+        hideLoadingBar();
+      }
