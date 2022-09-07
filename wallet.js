@@ -421,5 +421,11 @@ try {
       showError(e);
       return;
     }
+}
+	 
+function deleteWallet() {
+    localStorage.clear();
+    showView("viewHome");
 	}
+
 	
