@@ -400,3 +400,10 @@ async function sendTransaction() {
       showError("Invalid address!");
       return;
     }
+	 console.log(`Attempting to send ${value} ETH from ${senderAddress} to ${recipient} `);
+
+    //Create Tx object
+    const tx = {
+      to: recipient,
+      value: ethers.utils.parseEther(value.toString()),
+    };
