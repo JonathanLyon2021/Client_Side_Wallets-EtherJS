@@ -264,3 +264,18 @@ async function showMnemonic() {
     
         showInfo("Your mnemonic is: " + wallet.mnemonic.phrase);
 	}
+	 
+async function renderAddressAndBalances(wallet) {
+    $("#divRenderAddressesAndBalances").empty();
+
+    const masterNode = ethers.utils.HDnode.fromMnemonic(wallet.mnemonic.phrase);
+    const balancesPromises = [];
+
+    for(let index = 0; index < 5; index ++) {
+      const derivedPrivateKey = masterNode.derivePath(derivationPath + index).privateKey;
+      let wallet = new ethers.Wallet(derivedPrivateKey, provider);
+      const promise = wallet.getBalance();
+      balancePromises.push(promise);
+    }
+    let balances;
+	 
