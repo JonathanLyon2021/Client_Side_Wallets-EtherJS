@@ -339,3 +339,26 @@ async function renderAddresses(wallet) {
       $("#senderAddress").append(option);
     }
 	}
+
+async function signTransaction() {
+    let senderAddress = $("#senderAddress option: selected").attr("id");
+    let wallet = wallets[senderAddress];
+
+    //Validations
+
+    if(!wallet) {
+      showError("Invalid address!");
+      return;
+    }
+
+    const recipient = $("#recipientAddress").val();
+    if(!recipient){
+      showError("Invalid recipient!");
+      return;
+    }
+
+    const value = $("transferValue").val();
+    if (!value || value < 0){
+      showError("Invalid transfer value!");
+      return;  ///what are we returning???
+    }
