@@ -378,3 +378,25 @@ async function signTransaction() {
       return;
     }
 	}
+
+	 
+async function sendTransaction() {
+    const recipient = $("recipientAddress").val();
+    if(!recipient) {
+      showError("Invalid recipient!");
+      return;
+    }
+
+    const value = $("#transferValue").val();
+    if (!value || value < 0) {
+      showError("Invalid transfer value!");
+      return;
+    }
+
+    let senderAddress = $("#senderAddress option: selected").attr("id");
+    let wallet = wallets[senderAddress];
+
+    if (!wallet){
+      showError("Invalid address!");
+      return;
+    }
