@@ -426,6 +426,22 @@ try {
 function deleteWallet() {
     localStorage.clear();
     showView("viewHome");
+ }
+
+	 
+function initializeContract() {
+		// OPTIONAL TODO:
 	}
+
+async function executeContract() {
+		// OPTIONAL TODO:
+	}
+
+function exportWalletToJSONFile() {
+		// OPTIONAL TODO:
+	}
+});
+
+	 
 
 	
