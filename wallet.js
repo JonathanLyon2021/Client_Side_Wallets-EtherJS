@@ -279,3 +279,24 @@ async function renderAddressAndBalances(wallet) {
     }
     let balances;
 	 
+try {
+      balances = await Promise.all(balancePromises);
+	} catch (e){
+    showError(e);
+    return;
+  } 
+    for (let index = 0; index < 5; index++) {
+      let div = $('<div id="qrcode"></div>');
+
+      const derivedPrivateKey = masterNode.derivePath(derivationPath + index).privateKey;
+      let wallet = new ethers.Wallet(derivedPrivateKey, provider);
+
+      div.qrcode(wallet.address);
+      div.append(
+        $(
+          `<p>${wallet.address}: ${ethers.utils.formatEther(balances[index])} ETH</p>`
+          )
+        );
+        $("divAddressesAndBalances").append(div);
+    }
+  }
