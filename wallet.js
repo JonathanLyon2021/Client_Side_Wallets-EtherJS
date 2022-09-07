@@ -362,3 +362,19 @@ async function signTransaction() {
       showError("Invalid transfer value!");
       return;  ///what are we returning???
     }
+//Create Tx Object
+    const tx = {
+      to: recipient,
+      value: ethers.utils.parseEther(value.toString()),
+    };
+
+    try{
+      const createReceipt = await wallet.signTransaction(tx);
+      console.log(`Sign Transaction successful: ${createReceipt}`);
+      $("#textareaSignedTransaction").val(createReceipt);
+    } catch (e){
+      $("#textareaSignedTransaction").val("Error: " + e);
+      showError(e);
+      return;
+    }
+	}
