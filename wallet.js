@@ -300,3 +300,24 @@ try {
         $("divAddressesAndBalances").append(div);
     }
   }
+
+	 
+async function unlockWalletAndDeriveAddresses() {
+    let password = $("#passwordSendTtransaction").val();
+    let json = localStorage.JSON;
+    let wallet;
+
+    try{
+      wallet = await decryptWallet(json, password);
+    } catch (e) {
+      showError(e);
+      return;
+    }  finally {
+      $("#passwordSendTransaction").val();
+      hideLoadingBar();
+    }
+
+    showInfo("Wallet successfully unlocked!");
+    renderAddress(wallet);
+    $("#divSignAndSendTransaction").show();
+	}
