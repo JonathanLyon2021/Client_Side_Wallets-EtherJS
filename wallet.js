@@ -246,3 +246,21 @@
 
     fileReader.readAsText($("#walletForUpload")[0].files[0]);
 	}
+	 
+async function showMnemonic() {
+		const password = $("#passwordShowMnemonic").val();
+      const json = window.localStorage.JSON;
+
+      let wallet;
+
+      try {
+        wallet = await decryptWallet(json, password);
+      } catch (e) {
+        showError(e);
+        return;
+      }finally {
+        hideLoadingBar();
+      }
+    
+        showInfo("Your mnemonic is: " + wallet.mnemonic.phrase);
+	}
