@@ -248,7 +248,7 @@
 	}
 	 
 async function showMnemonic() {
-		const password = $("#passwordShowMnemonic").val();
+      const password = $("#passwordShowMnemonic").val();
       const json = window.localStorage.JSON;
 
       let wallet;
