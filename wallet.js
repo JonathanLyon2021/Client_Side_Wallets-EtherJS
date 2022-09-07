@@ -407,3 +407,19 @@ async function sendTransaction() {
       to: recipient,
       value: ethers.utils.parseEther(value.toString()),
     };
+	
+try {
+      const createReceipt = await wallet.sendTransaction(tx);
+      await createReceipt.wait();
+      const hash = createReceipt.hash;
+      console.log(`Transaction successful with hash: ${hash}`);
+      showInfo(`Transaction successful with hash: ${hash}`);
+      let etherscanUrl = "https://ropsten.etherscan.io/tx/" + hash;
+      $("textareaSendTranscactionResult").val("Error: " + e);
+
+    } catch (e) {
+      showError(e);
+      return;
+    }
+	}
+	
